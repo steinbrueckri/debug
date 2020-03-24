@@ -2,7 +2,7 @@ FROM debian:unstable-20200224
 
 # Packages
 RUN apt-get update &&\
-    apt-get install -y strace \
+    apt-get install -y ca-certificates curl file g++ git locales make uuid-runtime strace \
                        procps \
                        tree \
                        vim \
@@ -11,6 +11,7 @@ RUN apt-get update &&\
                        openssh-server \
                        yadm \
                        zsh \
+                       git \
                        silversearcher-ag \
                        dnsutils \
                        iputils-clockdiff \
@@ -18,8 +19,13 @@ RUN apt-get update &&\
                        iputils-tracepath \
                        iputils-ping \
                        httpie \
+                       python3-pip \
                        wget &&\
     rm -rf /var/lib/apt/lists/*
+
+# zsh
+RUN zsh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" ||true
+RUN ln -f /bin/zsh /bin/sh
 
 # Configuration
 RUN mkdir /var/run/sshd /root/.ssh
