@@ -7,11 +7,15 @@
 
 ## Why
 
-Simple container image with some debugging tools
+Simple container image with some debugging tools ...
 
 ## What
 
+TBD
+
 ## How
+
+TBD
 
 ## Release
 

@@ -2,7 +2,7 @@ FROM debian:unstable-20200224
 
 # Packages
 RUN apt-get update &&\
-    apt-get install -y strace \
+    apt-get install -y ca-certificates curl file g++ git locales make uuid-runtime strace \
                        procps \
                        tree \
                        vim \
@@ -11,6 +11,7 @@ RUN apt-get update &&\
                        openssh-server \
                        yadm \
                        zsh \
+                       git \
                        silversearcher-ag \
                        dnsutils \
                        iputils-clockdiff \
@@ -18,18 +19,20 @@ RUN apt-get update &&\
                        iputils-tracepath \
                        iputils-ping \
                        httpie \
-                       wget &&\
-    rm -rf /var/lib/apt/lists/*
+                       python3-pip \
+                       wget
 
-# Configuration
+# h2t
+RUN git clone https://github.com/gildasio/h2t && cd h2t && pip3 install -r requirements.txt
+
+# ssh
 RUN mkdir /var/run/sshd /root/.ssh
 RUN curl https://github.com/steinbrueckri.keys >> /root/.ssh/authorized_keys
 
-# Cleanup
+# cleanup
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Final
 EXPOSE 22
-
 CMD ["/usr/sbin/sshd", "-D"]

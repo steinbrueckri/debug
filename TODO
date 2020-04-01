@@ -1,4 +1,0 @@
-# TODO: setup authorized_keys with pub keys from github
-# TODO: Deploy dotfiles
-# TODO: Add linuxbrew to install httpie, terragrunt, terraform, httpie, ansible
-# TODO: Use user context not root context
