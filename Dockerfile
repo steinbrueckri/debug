@@ -20,7 +20,14 @@ RUN apt-get update &&\
                        iputils-ping \
                        httpie \
                        python3-pip \
-                       wget
+                       wget &&\
+                       rm -rf /var/lib/apt/lists/*
+
+# zsh
+RUN zsh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" ||true
+RUN ln -f /bin/zsh /bin/sh
+
+# Configuration
 
 # h2t
 RUN git clone https://github.com/gildasio/h2t && cd h2t && pip3 install -r requirements.txt
