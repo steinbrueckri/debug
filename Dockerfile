@@ -12,6 +12,7 @@ RUN apt-get update &&\
                        yadm \
                        zsh \
                        git \
+                       hey \
                        silversearcher-ag \
                        dnsutils \
                        iputils-clockdiff \
