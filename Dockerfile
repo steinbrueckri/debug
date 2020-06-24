@@ -19,6 +19,7 @@ RUN apt-get update &&\
                        iputils-arping \
                        iputils-tracepath \
                        iputils-ping \
+                       netcat-openbsd \
                        httpie \
                        python3-pip \
                        wget &&\
