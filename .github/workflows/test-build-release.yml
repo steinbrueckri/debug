@@ -1,4 +1,3 @@
-
 name: test-build-release
 on: push
 env:
@@ -14,15 +13,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Commit test
-        uses: wagoid/commitlint-github-action@v1
+      - name: Install bats
+        run: sudo apt-get -y install bats > /dev/null
 
-      - name: Markdown test
-        uses: actionshub/markdownlint@v1.0.0
-
-      - name: Build Docker image
-        run: |
-          docker build -t ${IMAGE}:${IMAGE_TAG} .
+      - name: Run CI script
+        run: ./test/run.bats
 
   release:
     name: Create release

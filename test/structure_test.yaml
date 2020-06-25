@@ -1,0 +1,40 @@
+schemaVersion: 2.0.0
+
+fileExistenceTests:
+  - name: '/entrypoint.sh exist ...'
+    path: /entrypoint.sh
+    isExecutableBy: 'owner'
+    shouldExist: true
+    uid: 0
+    gid: 0
+
+commandTests:
+  - name: "say hello world with bash"
+    command: "bash"
+    args:
+      - -c
+      - |
+         echo hello &&
+         echo world
+
+  - name: "say hello world with zsh"
+    command: "zsh"
+    args:
+      - -c
+      - |
+         echo hello &&
+         echo world
+
+  - name: "say hello world with fish"
+    command: "fish"
+    args:
+      - -c
+      - |
+         echo hello &&
+         echo world
+
+metadataTest:
+  entrypoint: [/entrypoint.sh]
+  labels:
+  - key: 'maintainer'
+    value: 'richard.steinbrueck@googlemail.com'
