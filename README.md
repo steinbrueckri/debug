@@ -1,4 +1,4 @@
-# The DEBUG container for any moment in live
+# The DEBUG container for any moment in life
 
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=steinbrueckri/debug)](https://dependabot.com)
 ![test-build-release](https://github.com/steinbrueckri/debug/workflows/test-build-release/badge.svg)
@@ -20,6 +20,10 @@ For convinience you can use the shell you like the most, you can choose the foll
 - bash
 - sh
 
+### Build locally
+
+```sh
+docker build -t debug:local . -f src/Dockerfile
 ### Run in docker context
 
 #### Interactive Mode

@@ -39,7 +39,7 @@ jobs:
           DOCKERHUB_USERNAME=`echo "${IMAGE}" | awk -F"/" '{print $1}'`
           echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u $DOCKERHUB_USERNAME --password-stdin
           # docker build
-          docker build -t ${IMAGE}:${{ steps.dump-version.outputs.new_tag }} .
+          docker build -t ${IMAGE}:${{ steps.dump-version.outputs.new_tag }} . -f src/Dockerfile
           # docker create latest tag
           docker tag ${IMAGE}:${{ steps.dump-version.outputs.new_tag }} ${IMAGE}:latest
           # docker push images
