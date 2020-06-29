@@ -25,3 +25,4 @@ fish
 neovim
 tmux
 nginx-light
+postgresql-client
