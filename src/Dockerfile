@@ -18,7 +18,7 @@ RUN chmod 755 /entrypoint.sh
 # Packages ####################################################################
 COPY src/packages.txt /tmp/packages.txt
 # I use cat because i like cat!
-# hadolint ignore=DL3009,SC2002
+# hadolint ignore=DL3008,DL3009,DL3015,SC2002,SC2046
 RUN apt-get update && apt-get -q -y -o Dpkg::Use-Pty=0 install $(cat /tmp/packages.txt) && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # oh-my-zsh ###################################################################
