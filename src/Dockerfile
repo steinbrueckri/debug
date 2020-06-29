@@ -17,9 +17,9 @@ RUN chmod 755 /entrypoint.sh
 
 # Packages ####################################################################
 COPY src/packages.txt /tmp/packages.txt
-# we cleanup later and i use cat because i like cat!
+# I use cat because i like cat!
 # hadolint ignore=DL3009,SC2002
-RUN apt-get update && cat /tmp/packages.txt | xargs apt-get -q -y -o Dpkg::Use-Pty=0 install
+RUN apt-get update && apt-get -q -y -o Dpkg::Use-Pty=0 install $(cat /tmp/packages.txt) && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # oh-my-zsh ###################################################################
 RUN zsh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true
