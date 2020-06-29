@@ -35,9 +35,6 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/
 # setup ssh ###################################################################
 RUN mkdir /var/run/sshd /root/.ssh
 
-# cleanup #####################################################################
-RUN apt-get clean & rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 # Final #######################################################################
 EXPOSE 22 80
 
