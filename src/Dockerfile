@@ -38,5 +38,4 @@ RUN mkdir /var/run/sshd /root/.ssh
 # Final #######################################################################
 EXPOSE 22 80
 
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["zsh"]
+CMD ["/entrypoint.sh"]

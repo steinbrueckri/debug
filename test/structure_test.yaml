@@ -34,7 +34,7 @@ commandTests:
          echo world
 
 metadataTest:
-  entrypoint: [/entrypoint.sh]
+  cmd: [/entrypoint.sh]
   labels:
   - key: 'maintainer'
     value: 'richard.steinbrueck@googlemail.com'
