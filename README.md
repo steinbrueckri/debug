@@ -24,6 +24,8 @@ For convinience you can use the shell you like the most, you can choose the foll
 
 ```sh
 docker build -t debug:local . -f src/Dockerfile
+```
+
 ### Run in docker context
 
 #### Interactive Mode
