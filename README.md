@@ -45,7 +45,7 @@ docker run -d --rm -p2222:22 -p8080:80 steinbrueckri/debug
 #### Interactive Mode
 
 ```sh
-kubectl run --namespace default -i --tty debug --image=steinbrueckri/debug --restart=Never --rm=true -- zsh"
+kubectl run --namespace default -i --tty debug --image=steinbrueckri/debug --restart=Never --rm=true -- zsh
 ```
 
 #### Server Mode
