@@ -35,6 +35,11 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/
 # setup ssh ###################################################################
 RUN mkdir /var/run/sshd /root/.ssh
 
+# setup readme ################################################################
+ADD https://github.com/charmbracelet/glow/releases/download/v0.2.0/glow_0.2.0_linux_x86_64.tar.gz /usr/local/glow
+RUN ln -s /usr/local/bin/glow /usr/local/glow/glow
+COPY src/README.md /README.md
+
 # Final #######################################################################
 EXPOSE 22 80
 
