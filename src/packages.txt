@@ -27,3 +27,4 @@ tmux
 nginx-light
 postgresql-client
 telnet
+redis-server
