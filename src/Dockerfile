@@ -1,4 +1,4 @@
-FROM debian:unstable-20200803
+FROM debian:unstable-20210111
 LABEL maintainer="richard.steinbrueck@googlemail.com"
 
 ## Configuration ##############################################################
@@ -24,8 +24,13 @@ RUN apt-get update && apt-get -q -y -o Dpkg::Use-Pty=0 install $(cat /tmp/packag
 # oh-my-zsh ###################################################################
 RUN zsh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true
 
-# oh-my-fish ##################################################################
-RUN fish -c "$(curl -fsSL https://get.oh-my.fish)" || true
+# Static binarys ##############################################################
+## Kafkactl - https://github.com/deviceinsight/kafkactl/
+WORKDIR /tmp/kafkactl
+RUN curl -L https://github.com/deviceinsight/kafkactl/releases/download/v1.14.0/kafkactl_1.14.0_Linux_x86_64.tar.gz --output kafkactl.tar.gz &&\
+    tar xvfz kafkactl.tar.gz &&\
+    cp /tmp/kafkactl/kafkactl /usr/local/bin/kafkactl &&\
+    chmod +x /usr/local/bin/kafkactl
 
 # setup nginx #################################################################
 RUN rm /var/www/html/*
@@ -42,5 +47,5 @@ COPY src/README.md /README.md
 
 # Final #######################################################################
 EXPOSE 22 80
-
+WORKDIR /
 CMD ["/entrypoint.sh"]

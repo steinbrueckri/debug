@@ -8,25 +8,16 @@ fileExistenceTests:
     uid: 0
     gid: 0
 
+  - name: 'kafkactl exist ...'
+    path: /usr/local/bin/kafkactl
+    isExecutableBy: 'owner'
+    shouldExist: true
+    uid: 0
+    gid: 0
+
 commandTests:
   - name: "say hello world with bash"
     command: "bash"
-    args:
-      - -c
-      - |
-         echo hello &&
-         echo world
-
-  - name: "say hello world with zsh"
-    command: "zsh"
-    args:
-      - -c
-      - |
-         echo hello &&
-         echo world
-
-  - name: "say hello world with fish"
-    command: "fish"
     args:
       - -c
       - |
