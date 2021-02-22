@@ -30,7 +30,7 @@ jobs:
 
       - name: Bump version and push tag
         id: dump-version
-        uses: mathieudutour/github-tag-action@v5.1
+        uses: mathieudutour/github-tag-action@v5.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
