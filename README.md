@@ -79,7 +79,7 @@ TBD
 For testing the [bats](https://github.com/bats-core/bats-core#installation) testing framework is used.
 
 ```bash
-git clone https://github.com/p1nkun1c0rns/prometheus-operator-lint-action.git
+git clone https://github.com/steinbrueckri/debug.git
 ./tests/run.bats
 ```
 
