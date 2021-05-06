@@ -1,4 +1,4 @@
-FROM debian:unstable-20210326
+FROM debian:unstable-20210408
 LABEL maintainer="richard.steinbrueck@googlemail.com"
 
 ## Configuration ##############################################################
@@ -47,6 +47,7 @@ ADD http://aia.media-saturn.com/Media-Saturn-SubCA-01.crt /tmp/certs
 ADD http://aia.media-saturn.com/Media-Saturn-SubCA-02.crt /tmp/certs
 
 # convert the certified from DER to PEM
+# hadolint ignore=SC2045
 RUN for c in $(ls /tmp/certs); \
       do openssl x509 -inform DER -in "/tmp/certs/$c" -out "/usr/share/ca-certificates/$c"; \
     done
