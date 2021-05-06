@@ -40,6 +40,20 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/
 # setup ssh ###################################################################
 RUN mkdir /var/run/sshd /root/.ssh
 
+# trust additional CAs ########################################################
+RUN mkdir /tmp/certs
+ADD http://aia.media-saturn.com/Media-Saturn-RootCA.crt /tmp/certs
+ADD http://aia.media-saturn.com/Media-Saturn-SubCA-01.crt /tmp/certs
+ADD http://aia.media-saturn.com/Media-Saturn-SubCA-02.crt /tmp/certs
+
+# convert the certified from DER to PEM
+RUN for c in $(ls /tmp/certs); \
+      do openssl x509 -inform DER -in "/tmp/certs/$c" -out "/usr/share/ca-certificates/$c"; \
+    done
+
+RUN find /usr/share/ca-certificates/ | sed 's/\/usr\/share\/ca-certificates\///' > /etc/ca-certificates.conf
+RUN /usr/sbin/update-ca-certificates
+
 # Final #######################################################################
 EXPOSE 22 80
 WORKDIR /
