@@ -26,6 +26,11 @@ For convinience you can use the shell you like the most, you can choose the foll
 docker build -t debug:local . -f src/Dockerfile
 ```
 
+### Man page
+
+Inside the container you can open the man page with `man debug`.
+The man page will give you some hints what is installed and some code snippets.
+
 ### Run in docker context
 
 #### Interactive Mode
