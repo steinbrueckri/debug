@@ -1,4 +1,4 @@
-FROM debian:unstable-20210111
+FROM debian:unstable-20210408
 LABEL maintainer="richard.steinbrueck@googlemail.com"
 
 ## Configuration ##############################################################
@@ -43,6 +43,21 @@ RUN mkdir /var/run/sshd /root/.ssh
 # setup manpage ################################################################
 COPY src/debug.1 /usr/local/man/man1/
 RUN gzip /usr/local/man/man1/debug.1
+
+# trust additional CAs ########################################################
+RUN mkdir /tmp/certs
+ADD http://aia.media-saturn.com/Media-Saturn-RootCA.crt /tmp/certs
+ADD http://aia.media-saturn.com/Media-Saturn-SubCA-01.crt /tmp/certs
+ADD http://aia.media-saturn.com/Media-Saturn-SubCA-02.crt /tmp/certs
+
+# convert the certified from DER to PEM
+# hadolint ignore=SC2045
+RUN for c in $(ls /tmp/certs); \
+      do openssl x509 -inform DER -in "/tmp/certs/$c" -out "/usr/share/ca-certificates/$c"; \
+    done
+
+RUN find /usr/share/ca-certificates/ | sed 's/\/usr\/share\/ca-certificates\///' > /etc/ca-certificates.conf
+RUN /usr/sbin/update-ca-certificates
 
 # Final #######################################################################
 EXPOSE 22 80
