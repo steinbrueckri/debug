@@ -40,6 +40,10 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/
 # setup ssh ###################################################################
 RUN mkdir /var/run/sshd /root/.ssh
 
+# setup manpage ################################################################
+COPY src/debug.1 /usr/local/man/man1/
+RUN gzip /usr/local/man/man1/debug.1
+
 # trust additional CAs ########################################################
 RUN mkdir /tmp/certs
 ADD http://aia.media-saturn.com/Media-Saturn-RootCA.crt /tmp/certs
