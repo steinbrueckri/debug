@@ -31,3 +31,4 @@ redis-server
 nmap
 rsync
 kafkacat
+lsb-release
