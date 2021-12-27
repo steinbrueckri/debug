@@ -1,4 +1,4 @@
-FROM debian:unstable-20211201
+FROM debian:unstable-20211220
 LABEL maintainer="richard.steinbrueck@googlemail.com"
 
 ## Configuration ##############################################################
