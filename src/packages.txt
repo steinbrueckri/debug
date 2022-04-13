@@ -32,3 +32,4 @@ nmap
 rsync
 kafkacat
 lsb-release
+jq
