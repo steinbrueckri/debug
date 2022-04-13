@@ -1,0 +1,3 @@
+---
+ignore:
+  - vulnerability: CVE-2019-10751
