@@ -7,11 +7,9 @@ file
 locales
 uuid-runtime
 procps
-tree
 vim
 curl
 openssh-server
-zsh
 git
 hey
 dnsutils
@@ -21,11 +19,9 @@ iputils-tracepath
 iputils-ping
 httpie
 wget
-fish
-neovim
-tmux
 nginx-light
 postgresql-client
+mysql-client
 telnet
 redis-server
 nmap

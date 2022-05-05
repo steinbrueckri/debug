@@ -13,13 +13,6 @@ In this situation this image helps you alot! 🎉 🙌
 
 ## How
 
-For convinience you can use the shell you like the most, you can choose the following options:
-
-- zsh
-- fish
-- bash
-- sh
-
 ### Build locally
 
 ```sh
@@ -36,7 +29,7 @@ The man page will give you some hints what is installed and some code snippets.
 #### Interactive Mode
 
 ```sh
-docker run -it --rm --entrypoint /bin/zsh
+docker run -it --rm --entrypoint /bin/bash
 ```
 
 #### Server Mode
@@ -50,7 +43,7 @@ docker run -d --rm -p2222:22 -p8080:80 steinbrueckri/debug
 #### Interactive Mode
 
 ```sh
-kubectl run --namespace default -i --tty debug --image=steinbrueckri/debug --restart=Never --rm=true -- zsh
+kubectl run --namespace default -i --tty debug --image=steinbrueckri/debug --restart=Never --rm=true -- bash
 ```
 
 You can also alias that command within your `.zshrc`or `.bashrc` by adding the following line:
