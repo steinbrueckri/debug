@@ -38,7 +38,7 @@ COPY src/html/* /var/www/html/
 RUN ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/nginx/error.log
 
 # setup ssh ###################################################################
-RUN mkdir /var/run/sshd /root/.ssh
+RUN mkdir -p /var/run/sshd /root/.ssh
 
 # setup manpage ################################################################
 COPY src/debug.1 /usr/local/man/man1/

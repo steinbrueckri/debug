@@ -55,13 +55,18 @@ DATA="$(pwd)/test/data:/mnt/"
   mkdir -p $HOME/bin
   export PATH=$PATH:$HOME/bin
 
-  # check the os
+  # check os
   if [[ "$OSTYPE" == "linux-gnu"* ]]; then
           cst_os="linux"
   elif [[ "$OSTYPE" == "darwin"* ]]; then
           cst_os="darwin"
   else
           skip "This test is not supported on your OS platform 😒"
+  fi
+
+  # check arch
+  if [[ $(uname -p) == 'arm' ]]; then
+    skip "This test is not supported on your cpu platform 😒"
   fi
 
   # donwload the container-structure-test binary

@@ -52,7 +52,7 @@ You can also alias that command within your `.zshrc`or `.bashrc` by adding the f
 alias kdebug='kubectl run --namespace default -i --tty debug --image=steinbrueckri/debug --restart=Never --rm=true -- zsh'
 ```
 
-*NOTE:* Feel free to replace ZSH with the shell of your choice. We have sh, Bash, ZSH, fish
+_NOTE:_ Feel free to replace ZSH with the shell of your choice. We have sh, Bash, ZSH, fish
 
 #### Server Mode
 
@@ -78,7 +78,7 @@ For testing the [bats](https://github.com/bats-core/bats-core#installation) test
 
 ```bash
 git clone https://github.com/steinbrueckri/debug.git
-./tests/run.bats
+./test/run.bats
 ```
 
 ## Project versioning
@@ -86,7 +86,7 @@ git clone https://github.com/steinbrueckri/debug.git
 Project use [Semantic Versioning](https://semver.org/).
 We recommended to use the latest and specific release version.
 
-In order to keep your project dependencies up to date you can watch this repository *(Releases only)*
+In order to keep your project dependencies up to date you can watch this repository _(Releases only)_
 or use automatic tools like [Dependabot](https://dependabot.com/).
 
 ## Release
