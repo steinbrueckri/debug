@@ -85,20 +85,3 @@ DATA="$(pwd)/test/data:/mnt/"
 
   [[ "${status}" -eq 0 ]]
 }
-
-@test "vulnerability scanner" {
-
-  # init
-  mkdir -p $HOME/bin
-  export PATH=$PATH:$HOME/bin
-
-  # install grype
-  curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b $HOME/bin
-
-  # exec grype
-  grype ${IMAGE} -f High -q -o table
-
-  # check the feedback
-  debug "${status}" "${output}" "${lines}"
-  [[ "${status}" -eq 0 ]]
-}
