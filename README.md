@@ -29,7 +29,7 @@ The man page will give you some hints what is installed and some code snippets.
 #### Interactive Mode
 
 ```sh
-docker run -it --rm --entrypoint /bin/bash
+docker run -it --rm --entrypoint /bin/bash steinbrueckri/debug
 ```
 
 #### Server Mode
