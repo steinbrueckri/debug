@@ -12,7 +12,7 @@ curl
 openssh-server
 git
 hey
-dnsutils
+bind9-dnsutils
 iputils-clockdiff
 iputils-arping
 iputils-tracepath
